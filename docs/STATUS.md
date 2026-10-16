@@ -32,3 +32,9 @@
 ## Interpretation
 
 This is **working LAB software**, not an installed or validated ADAS system. The program cannot guarantee continuous OEM camera access or bypass system-enforced shutdown, and does not try to modify safety controls. The next technical check is actual head-unit OS and available standard Camera2 or authorized video source inventory. If no readable raw video exists under permitted user access and no hardware can be added, the requested OEM-only integration is NO-GO.
+
+
+## GitHub build update (2026-10-17)
+
+[GitHub Actions run 38983758648](https://github.com/OnurGuner5728/onur-drive-ai/actions/runs/38983758648) succeeded in all three CI jobs: Python 3.10 lab, Python 3.13 lab, and Android diagnostics debug APK build. The APK was built remotely on GitHub's hosted runner and published as an Actions artifact; this does **not** mean the APK was installed on any vehicle or that it can access OEM cameras. The original local SDK-not-installed observation above remains accurate for the initial lab environment.
+

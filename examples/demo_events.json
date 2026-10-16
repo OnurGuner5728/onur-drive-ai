@@ -1,0 +1,26 @@
+[
+  {
+    "type": "FRONT_CAR",
+    "severity": "INFO",
+    "spoken_text": "Ön görüntüde araç algılandı.",
+    "time": 0.13
+  },
+  {
+    "type": "SIDE_RIGHT_CAR",
+    "severity": "INFO",
+    "spoken_text": "Sağ kamerada araç algılandı.",
+    "time": 0.13
+  },
+  {
+    "type": "SIDE_LEFT_CAR",
+    "severity": "INFO",
+    "spoken_text": "Sol kamerada araç algılandı.",
+    "time": 0.13
+  },
+  {
+    "type": "FRONT_PERSON",
+    "severity": "INFO",
+    "spoken_text": "Ön görüntüde yaya algılandı.",
+    "time": 3.47
+  }
+]

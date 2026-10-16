@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "onur-drive-ai"
+version = "0.1.0"
+description = "Read-only experimental driver awareness and MG HS interface diagnostics"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "opencv-python>=4.7,<5", "fastapi>=0.100", "uvicorn>=0.23", "PyYAML>=6.0"]
+[project.optional-dependencies]
+test = ["pytest>=7.4"]
+[project.scripts]
+onur-drive = "onur_drive.cli:main"
+onur-probe = "onur_drive.probe:main"
+[tool.setuptools.packages.find]
+where = ["src"]

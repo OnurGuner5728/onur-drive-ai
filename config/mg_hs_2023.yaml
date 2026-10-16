@@ -1,0 +1,24 @@
+vehicle:
+  make: MG
+  model: HS
+  year: 2023
+  powertrain: petrol
+  surround_camera_present: user_confirmed
+  adaptive_cruise_present: user_confirmed
+  head_unit_os: unverified
+  avm_raw_access: unverified
+  adas_raw_access: unverified
+  radar_distance_access: unverified
+  continuous_avm_stream_above_ui_threshold: unverified
+safety:
+  control_interface: prohibited
+  head_unit_firmware_changes: prohibited
+  bypass_oem_speed_limit: prohibited
+  network_export: disabled
+  driver_advice_from_unvalidated_source: disabled
+  actual_vehicle_run: disabled_until_authorized_and_verified
+camera:
+  video_device_ids: []
+  expected_pixel_format: unverified
+  expected_resolution: unverified
+  capture_permission: unverified

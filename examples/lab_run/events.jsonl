@@ -1,0 +1,3 @@
+{"code": "FRONT_CAR", "level": "INFO", "text": "Ön görüntüde araç algılandı.", "time": 1828.808627678, "evidence": {"class": "car", "camera": "front", "source": "SIMULATED"}}
+{"code": "SIDE_right_car", "level": "INFO", "text": "Sağ kamerada car algılandı.", "time": 1828.808627678, "evidence": {"camera": "right", "class": "car"}}
+{"code": "SIDE_left_car", "level": "INFO", "text": "Sol kamerada car algılandı.", "time": 1828.808627678, "evidence": {"camera": "left", "class": "car"}}

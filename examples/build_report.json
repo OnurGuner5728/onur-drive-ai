@@ -1,0 +1,21 @@
+{
+  "product": "ONUR DRIVE AI MG HS 2023",
+  "release": "0.1.0-laboratory",
+  "date": "2026-10-17",
+  "automated_tests_passed": 26,
+  "local_demo_installed": true,
+  "simulated_quad_cameras_working": true,
+  "local_http_test_passed": true,
+  "native_v4l2_capability_probe_compiles": true,
+  "android_sdk_installed_in_build_environment": false,
+  "android_apk_compiled": false,
+  "car_connected": false,
+  "oem_360_stream_verified": false,
+  "speed_threshold_stream_continuity_verified": false,
+  "acc_radar_range_access_verified": false,
+  "neural_vehicle_detector_weights_included": false,
+  "natural_voice_files_included": false,
+  "brake_throttle_steering_acc_write_interfaces": "NONE",
+  "status": "SIMULATOR_TESTED__OEM_DEPLOYMENT_BLOCKED_UNVERIFIED",
+  "notes": "Tested with synthetic data, not actual MG HS cameras. Not a driving safety product."
+}

@@ -50,3 +50,15 @@ Bu, yalnızca OpenCV'nin sınırlı insan dedektörüyle laboratuvar analizidir.
 `ACCESS_DENIED` = Arayüze izin yok. `NO_VIDEO_SOURCE` = Görüntü akışı bulunamadı. `STREAM_STOPS` = OEM UI kapanınca ham görüntü de kesiliyor. Bu durumların hiçbirine firmware/hız/CAN müdahalesi yapılmaz.
 
 Bu adımlar tamamlanmadıkça "araç üzerine kuruldu" veya "MG kameraları çalışıyor" denemez. Aracına uzaktan fiziksel/sistem erişimim olmadığı için bunları kendi başıma ölçemiyorum.
+
+
+## GitHub'a push ve otomatik APK derlemesi
+
+- Repo: https://github.com/OnurGuner5728/onur-drive-ai
+- Actions: https://github.com/OnurGuner5728/onur-drive-ai/actions
+- `Laboratory CI and Android diagnostic APK` akışında **başarılı** bir çalıştırma aç; `Artifacts` içinden `onur-drive-readonly-android-diagnostics-debug` dosyasını indir. Bu dosya yalnızca tanılama içindir, araç kamerasına erişim sağlamaz.
+- `onur-drive-lab-demo` çıktısı, gerçek araç görüntüsü içermeyen sentetik MP4/JPG örneğidir.
+- Çevrimdışı Linux laboratuvarı: `ONUR_DRIVE_OFFLINE=1 ./install_and_run_linux_macos.sh` (önceden yüklü `cv2,numpy,fastapi,uvicorn,yaml,pytest` zorunlu; ağ kullanılmaz).
+- GitHub'da APK derlenmesi, araca APK yükleme yetkisi veya MG HS kamera erişimi olduğu anlamına gelmez.
+- Adım adım doğrulama sonuçları: `docs/KURULUM_DOGRULAMA_2026-10-17.md`.
+

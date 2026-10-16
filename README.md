@@ -114,3 +114,12 @@ onur-drive --source multi-synthetic
 ```
 
 Compare README claims with `docs/STATUS.md` before calling it deployed. Source license: MIT for newly authored code; third-party model weights and datasets are **not** included. No third-party project code was copied from the cited reference implementations.
+
+
+## GitHub automated build and offline labs
+
+- CI workflow: [.github/workflows/lab-ci.yml](.github/workflows/lab-ci.yml) (Python 3.10/3.13 tests, synthetic video, native V4L2 scanner, Android diagnostic debug APK).
+- See the [Actions page](https://github.com/OnurGuner5728/onur-drive-ai/actions) and open a **successful** run to download `onur-drive-readonly-android-diagnostics-debug`. A debug APK is a **diagnostic tool only**, never evidence of MG HS compatibility.
+- The standalone example MP4 and JPG are generated via `python scripts/render_demo.py`; build artifacts are not checked into source control.
+- On a lab machine with the listed Python dependencies already installed but **no internet**, use `ONUR_DRIVE_OFFLINE=1 ./install_and_run_linux_macos.sh`; this skips all downloads and uses the existing interpreter, and fails if required packages are missing.
+- Test outcomes, including unverified vehicle conditions: [docs/KURULUM_DOGRULAMA_2026-10-17.md](docs/KURULUM_DOGRULAMA_2026-10-17.md).

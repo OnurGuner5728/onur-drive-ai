@@ -1,0 +1,87 @@
+name: Laboratory CI and Android diagnostic APK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python-lab:
+    name: Python lab (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install package and test dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Run all automated tests
+        run: python -m pytest -q
+      - name: Generate four-camera synthetic demonstration
+        run: python scripts/render_demo.py
+      - name: Verify generated video
+        run: |
+          python - <<'PY'
+          import cv2
+          from pathlib import Path
+          p=Path("examples/onur_drive_4cam_SIMULASYON.mp4")
+          assert p.exists() and p.stat().st_size > 1000
+          cap=cv2.VideoCapture(str(p))
+          ok,frame=cap.read()
+          cap.release()
+          assert ok and frame is not None and frame.shape[1] == 1280
+          print("Synthetic demo verified:",frame.shape)
+          PY
+      - name: Compile read-only V4L2 capability scanner
+        run: g++ -std=c++17 -Wall -Wextra -Werror native/v4l2_capability_probe.cpp -o /tmp/onur_v4l2_probe
+      - name: Verify CLI help and no CAN write API
+        run: |
+          python -m onur_drive.cli --help
+          python -m onur_drive.probe --help
+      - name: Upload synthetic lab video and preview
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: onur-drive-lab-demo
+          path: |
+            examples/onur_drive_4cam_SIMULASYON.mp4
+            examples/onur_drive_4cam_onizleme.jpg
+          retention-days: 14
+
+  android-diagnostics:
+    name: Build read-only Android diagnostic APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK platform
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Build debug APK
+        working-directory: android-diagnostics
+        run: gradle :app:assembleDebug --no-daemon --stacktrace
+      - name: Upload APK for controlled diagnosis (not car installation)
+        uses: actions/upload-artifact@v4
+        with:
+          name: onur-drive-readonly-android-diagnostics-debug
+          path: android-diagnostics/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+          if-no-files-found: error

@@ -15,7 +15,7 @@ Bu belge `KURULUM_TR.md` adımlarının gerçek durumunu izler; test edilmemiş 
 | Standart çevrimiçi Linux kurulum betiği | Kapalı ağ ortamında `setuptools>=68` indirme adımı başarısız; yazılım hatası kanıtı değil | BLOCKED (network) |
 | Çevrimdışı Linux laboratuvar çalıştırma | `ONUR_DRIVE_OFFLINE=1 ./install_and_run_linux_macos.sh`: 26 test geçti, HTTP API çalıştı; önceden yüklü bağımlılıkları kullandı | PASS (lab) |
 | Windows `.bat` kurulum | Bu oturumda Windows çalıştırma ortamı yok | UNTESTED |
-| Android APK derleme | GitHub Actions üzerinde `android-diagnostics` debug APK işi mevcut; sonuca göre ayrıca CI durumunu kontrol edin | CI-dependent |
+| Android APK derleme | GitHub Actions run [38983758648](https://github.com/OnurGuner5728/onur-drive-ai/actions/runs/38983758648): Android job başarılı, debug APK artifact üretildi | PASS (CI build only; vehicle not installed) |
 | MG HS head unit işletim sistemi | Gerçek araç bağlı değil, üretici sürümü bilinmiyor | BLOCKED (vehicle) |
 | Camera2 tanılama | APK gerçek multimedya cihazında çalıştırılmadı | BLOCKED (vehicle) |
 | Yetkili ADB komutları | ADB bağlantısı yok; izin aşımı yapılmadı | NO ACCESS |

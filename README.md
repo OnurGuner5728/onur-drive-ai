@@ -1,6 +1,6 @@
 # ONUR DRIVE AI · MG HS 2023 — v0.2 LAB
 
-**Windows’ta kolay kullanım hedefi:** [GitHub Releases](https://github.com/OnurGuner5728/onur-drive-ai/releases) üzerinden `OnurDriveAI-Windows-TekTik-LAB-v0.2.zip` paketini indir (yalnızca başarılı Windows derlemesi sonrası), ZIP'i çıkar ve `BASLAT.bat` dosyasına çift tıkla. Python kurulumuna ihtiyaç duymadan yerel dört kameralı **sentetik simülasyon** açılacaktır. Bu, MG HS araç içine kurulan veya gerçek kamera/ACC verilerini kullanan bir ürün değildir.
+**Windows tek tık LAB paketi — doğrulanmış sürüm:** **[Hazır ZIP'i indir](https://github.com/OnurGuner5728/onur-drive-ai/releases/download/v0.2.0-lab/OnurDriveAI-Windows-TekTik-LAB-v0.2.zip)** → ZIP'i bir klasöre çıkar → **`BASLAT.bat` dosyasına çift tıkla**. Python kurulumu gerekmez. GitHub Actions, Windows EXE'yi derledi ve çalışan HTTP paneliyle smoke testini başarıyla tamamladı. Bu, MG HS araç içine kurulan veya gerçek kamera/ACC verilerini kullanan bir ürün değildir.
 
 ## ☕ Bir kahve ısmarla — Patreon
 
@@ -80,7 +80,7 @@ Structured alerts contain complete Turkish phrasing. Speech is OFF by default. P
 
 `onur-probe --output mg_hs_probe.json` runs ONLY if a previously authorized ADB connection exists and Android Platform Tools is installed. If `adb` is not installed/authorized it produces a **NO ACCESS** status without trying any bypass. Inspect `src/onur_drive/probe.py` for the complete command allowlist.
 
-Alternatively build `android-diagnostics/` **on a computer with the Android SDK**. The diagnostic APK is **NOT** included and could **NOT** be compiled in this environment. It enumerates ordinary Camera2 cameras, Android platform properties and tests Turkish system TTS; does not capture OEM video or send control commands. Even if Camera2 returns an empty list the OEM camera could still be available through a privileged internal pipeline. See `android-diagnostics/README.md`.
+Alternatively build `android-diagnostics/` **on a computer with the Android SDK**. A diagnostic APK was successfully compiled in GitHub Actions; it is **not bundled in the Windows LAB download and has not been installed in any MG HS**. It enumerates ordinary Camera2 cameras, Android platform properties and tests Turkish system TTS; does not capture OEM video or send control commands. Even if Camera2 returns an empty list the OEM camera could still be available through a privileged internal pipeline. See `android-diagnostics/README.md`.
 
 Native Linux read-only V4L2 *format enumeration* example: `native/v4l2_capability_probe.cpp`. No streaming or control ioctls are used.
 
@@ -101,7 +101,7 @@ An unidentified raw video device (`/dev/video14` from MG4, for example) is NOT a
 ## 6. Project structure
 
 ```
-android-diagnostics/  Android read-only diagnostic UI (source only, not built)
+android-diagnostics/  Android read-only diagnostic UI (sources; CI build verified, not car-tested)
 config/               MG HS user-confirmed vs unverified profile
 native/               Linux V4L2 read-only metadata inventory
 src/onur_drive/       vision, 4-camera broker, risk policy, voice, web UI, ADB metadata probe

@@ -1,9 +1,19 @@
-# Onur Drive AI — Android / MG HS tanılama projesi
+# ONUR DRIVE AI — MG HS Android kamera bağlantı testi v0.2
 
-**Kaynak kodu, APK değil.** Bu ortamda Android SDK/Gradle bulunmadığı için derleme yapılamadı.
+Bu **araç Android ekranında çalışması için derlenen APK'dir**, Windows ZIP değil. Doğrudan araç multimedya sistemine yüklenmesi yalnızca aracın resmi/izin verilen APK yükleme arayüzü varsa mümkündür.
 
-Bu uygulama yalnızca standart Android `Build` bilgilerini ve `CameraManager.getCameraIdList()` listesini okur; ayrıca cihazda kurulu TTS motoruyla Türkçe ses desteğini test eder. **Gerçek fabrika kamera akışı açılmaz.** OEM sistem kameraları genel Camera2 arayüzünde görünmeyebilir.
+## Park halinde, fabrikasyon donanımı değiştirmeden ilk test
 
-Gereksinimler: Java 17, Android SDK 35, Android Gradle Plugin 8.9.2, Gradle 8.11.1. SDK ve Gradle indirmesi için internet gerekir. `gradle :app:assembleDebug` komutuyla proje kökünden derlenebilir. APK `app/build/outputs/apk/debug/app-debug.apk` dizininde oluşur.
+1. GitHub Releases'den **OnurDriveAI-MGHS-CameraProbe-v0.2-debug.apk** dosyasını indir ve APK kurulumu desteklenen araç multimedya sistemine aktar.
+2. Araç park halindeyken normal Android uygulama kurulum işlemiyle yükle. Aracın sistemi üçüncü taraf uygulama kurmayı desteklemiyorsa burada dur. Android Auto'ya APK kurmak, MG'nin gömülü kamerasına erişim sağlamaz.
+3. Uygulamada **FABRİKA KAMERASI ERİŞİMİNİ TEST ET (PARK)** seç. Kamera listesinden erişilebilen bir cihaz seç.
+4. **SEÇİLİ KAMERAYI AÇ (PARK)** düğmesine bas ve kamera iznini ver. Gerçek görüntü ve artan kare sayısı çıkarsa standart Camera2 üzerinden görüntü erişimi doğrulanır.
+5. Dön ve **Tanı raporunu kaydet** ile cihaz ve Camera2 listesi raporunu JSON olarak al. Kameralar Camera2 listesinde yoksa bu API üzerinden erişim yok demektir, diğer donanım arayüzleri hakkında kesin bilgi vermez.
 
-Uygulama yalnızca araç multimedya sistemi APK yüklemeye resmi/önceden izin veriyorsa, araç park halindeyken kurulmalıdır. Yetki aşma, üretici imzası taklit etme, firmware düşürme, engineering mode kodları, hız sınırı değiştirme veya OEM AVM uygulaması değiştirme dahil değildir. APK kurulumunun MG HS üzerinde mümkün olduğu doğrulanmamıştır.
+Uygulama yalnızca kullanıcı başlattığında kamera açmayı dener; arka plana geçerken kamerayı kapatır. **ACC, radar, CAN-BUS, gaz, fren, direksiyon, USB firmware güncellemesi, mühendislik modu, OEM hız sınırlaması değiştirme yok.** Bu üretim kalitesinde bir sürüş yardım sistemi değildir.
+
+MG4 kamera uygulamasına ait /dev/video aygıt adresleri MG HS 2023 için varsayılmaz. Aracın Android çalıştırdığı, APK kurabildiği ve OEM kameralarını Camera2'ye açtığı henüz doğrulanmadı.
+
+Derleme: Java 17, Android SDK 35, Gradle 8.11.1; `gradle :app:assembleDebug`. GitHub CI APK oluşturabilir. APK debug anahtarıyla imzalıdır; gelecekte güncellemede önceki debug sürümün kaldırılması gerekebilir.
+
+[Patreon — Bir kahve ısmarla (isteğe bağlı)](https://www.patreon.com/c/onurguner)

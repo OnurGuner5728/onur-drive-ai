@@ -12,13 +12,24 @@
 - ❌ MG HS üzerine gerçek kurulum YAPILMADI
 - ❌ MG HS'nin gerçek AVM/ADAS kamerasına erişildiği doğrulanmadı
 - ❌ Sürekli fabrika kamera görüntüsü elde edildiği doğrulanmadı
-- ❌ Araç işlemcisinde çalışan Android APK oluşmadı (Android SDK yok)
+- ⚠️ Android tanılama APK'si GitHub CI'da derlendi; araç üzerinde kurulup çalıştığı doğrulanmadı
 - ❌ Gerçek araç algılama ağırlığı ve doğal Türkçe ses dosyaları paketlenmedi
 - ❌ ACC/radar takip mesafesi verisine erişim yok
 
 **Önemli:** Bu bir sürüş güvenlik sistemi değil. Gerçek trafikte yönlendirme için kullanılamaz. OEM görüntü hız sınırlayıcısını aşmaz. Fren/gaz/direksiyon sistemine yazılım kodu bulunmaz.
 
-## Bilgisayarda çalıştırma
+## Tek tık Windows laboratuvar kurulumu
+
+1. [GitHub Releases](https://github.com/OnurGuner5728/onur-drive-ai/releases) sayfasından başarıyla derlenmiş `OnurDriveAI-Windows-TekTik-LAB-v0.2.zip` dosyasını indir.
+2. ZIP arşivini bir klasöre **çıkar**.
+3. `BASLAT.bat` dosyasına **çift tıkla**. Yerel 4-kameralı sentetik laboratuvar arayüzü tarayıcıda açılır.
+4. Kapatmak için açılan komut penceresini kapat.
+
+Bu sürüm hedef Windows bilgisayarında Python veya ücretli servis gerektirmez. Araç üzerine kurulum DEĞİLDİR; fabrikanın MG HS kameralarını veya ACC sensörlerini kullanmaz. İmzasız uygulamalar Windows koruma uyarılarına takılabilir; kaynağına güvenmediğiniz uygulamalara güvenlik istisnası uygulamayın.
+
+**Bir kahve ısmarla:** [Patreon — Onur Güner](https://www.patreon.com/c/onurguner) · tamamen isteğe bağlı.
+
+## Bilgisayarda çalıştırma (kaynak kod yöntemi)
 
 Windows: `install_and_run_windows.bat` dosyasını çift tıkla. Python 3.10+ ve paket bağımlılıklarını indirebilmek için internet gerekir.
 

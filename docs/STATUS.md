@@ -38,3 +38,7 @@ This is **working LAB software**, not an installed or validated ADAS system. The
 
 [GitHub Actions run 38983758648](https://github.com/OnurGuner5728/onur-drive-ai/actions/runs/38983758648) succeeded in all three CI jobs: Python 3.10 lab, Python 3.13 lab, and Android diagnostics debug APK build. The APK was built remotely on GitHub's hosted runner and published as an Actions artifact; this does **not** mean the APK was installed on any vehicle or that it can access OEM cameras. The original local SDK-not-installed observation above remains accurate for the initial lab environment.
 
+
+## Tek tık Windows sürümü
+
+`.github/workflows/windows-portable.yml` iş akışı PyInstaller ile Windows'ta taşınabilir paket oluşturup canlı yerel HTTP testi geçerse GitHub Releases'e koymayı hedefler. Başarılı CI görülmeden tamamlandı sayılmaz. OEM MG HS kamera ve ACC bağlantısı hâlâ doğrulanmadı.

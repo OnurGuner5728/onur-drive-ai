@@ -1,4 +1,15 @@
-# ONUR DRIVE AI · MG HS 2023 — v0.1.0 LAB
+# ONUR DRIVE AI · MG HS 2023 — v0.2 LAB
+
+**Windows’ta kolay kullanım hedefi:** [GitHub Releases](https://github.com/OnurGuner5728/onur-drive-ai/releases) üzerinden `OnurDriveAI-Windows-TekTik-LAB-v0.2.zip` paketini indir (yalnızca başarılı Windows derlemesi sonrası), ZIP'i çıkar ve `BASLAT.bat` dosyasına çift tıkla. Python kurulumuna ihtiyaç duymadan yerel dört kameralı **sentetik simülasyon** açılacaktır. Bu, MG HS araç içine kurulan veya gerçek kamera/ACC verilerini kullanan bir ürün değildir.
+
+## ☕ Bir kahve ısmarla — Patreon
+
+Projeyi desteklemek istersen: **[Patreon / Onur Güner](https://www.patreon.com/c/onurguner)**.
+
+Destek tamamen gönüllüdür; indirmenin veya yazılımı çalıştırmanın koşulu değildir.
+
+---
+
 
 **Status (2026-10-17): Local working laboratory prototype. Not installed in the vehicle.**
 

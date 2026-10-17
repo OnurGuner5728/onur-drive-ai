@@ -6,6 +6,13 @@ vehicle:
   surround_camera_present: user_confirmed
   adaptive_cruise_present: user_confirmed
   head_unit_os: unverified
+  head_unit_firmware: "DS04A_AS23_TURKEY_20230129_852_R"
+  head_unit_hardware_version: "HW001"
+  head_unit_firmware_evidence: user_supplied_system_screen_2026_10_17
+  head_unit_family: "SAIC DS04A / MG HS AS23"
+  head_unit_apk_install_method: unverified
+  head_unit_public_camera2: unverified
+  head_unit_adb_availability: unverified
   avm_raw_access: unverified
   adas_raw_access: unverified
   radar_distance_access: unverified

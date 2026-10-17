@@ -8,6 +8,16 @@ vehicle:
   head_unit_os: unverified
   head_unit_firmware: "DS04A_AS23_TURKEY_20230129_852_R"
   head_unit_hardware_version: "HW001"
+  head_unit_radio_software_family: "AS23P_TURKEY_01_A1.2x_230109_R"
+  head_unit_radio_software_family_confidence: "photo_limited_minor_version_not_verified"
+  head_unit_navigation_version: "BINIMG_4.5.16_ARM*29"
+  head_unit_voice_version: "3.2.28"
+  head_unit_android_version: unverified
+  head_unit_engineering_mode: user_observed
+  head_unit_engineering_mode_adb_page: "log_switch_dmesg_log_options_no_adbd_status_confirmed"
+  head_unit_third_party_page: "vr_upgrade_navigation_upgrade_dsp_gain_no_apk_install_entry"
+  head_unit_app_version_menu: not_yet_inspected
+  private_vehicle_identifiers: "OMITTED_VIN_SERIAL_BLUETOOTH_MAC"
   head_unit_firmware_evidence: user_supplied_system_screen_2026_10_17
   head_unit_family: "SAIC DS04A / MG HS AS23"
   head_unit_apk_install_method: unverified

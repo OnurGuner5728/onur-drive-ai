@@ -37,13 +37,14 @@ jobs:
         run: |
           set -eux
           test -s android-diagnostics/app/build/outputs/apk/debug/app-debug.apk
+          test -f android-diagnostics/app/src/main/java/com/onurdrive/diagnostics/UniversalInterfaceScanner.java
           grep -q 'android.permission.CAMERA' android-diagnostics/app/src/main/AndroidManifest.xml
           ! grep -Eq 'INTERNET|WRITE_SECURE_SETTINGS|REBOOT|MODIFY_PHONE_STATE' android-diagnostics/app/src/main/AndroidManifest.xml
-          cp android-diagnostics/app/build/outputs/apk/debug/app-debug.apk OnurDriveAI-MGHS-CameraProbe-v0.2-debug.apk
+          cp android-diagnostics/app/build/outputs/apk/debug/app-debug.apk OnurDriveAI-Universal-Camera-Scanner-v0.3-debug.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: OnurDriveAI-MGHS-CameraProbe-v0.2
-          path: OnurDriveAI-MGHS-CameraProbe-v0.2-debug.apk
+          name: OnurDriveAI-Universal-Camera-Scanner-v0.3
+          path: OnurDriveAI-Universal-Camera-Scanner-v0.3-debug.apk
           if-no-files-found: error
       - name: Publish prerelease - NOT VERIFIED ON MG HS
         if: github.ref == 'refs/heads/main'
@@ -51,10 +52,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -e
-          TAG="v0.2.0-headunit-probe"
-          FILE="OnurDriveAI-MGHS-CameraProbe-v0.2-debug.apk"
+          TAG="v0.3.0-universal-scanner"
+          FILE="OnurDriveAI-Universal-Camera-Scanner-v0.3-debug.apk"
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "$FILE" --clobber
           else
-            gh release create "$TAG" "$FILE" --target "$GITHUB_SHA" --prerelease --title "MG HS Android Camera2 Probe v0.2 — test only" --notes "Native Android APK — user-initiated, parked-only Camera2 preview probe. MG HS 2023 installation and OEM camera accessibility NOT verified. No vehicle controls, CAN, firmware or speed override. If Android head unit blocks third-party APK installation, do not bypass safety protections. Coffee: https://www.patreon.com/c/onurguner"
+            gh release create "$TAG" "$FILE" --target "$GITHUB_SHA" --prerelease --title "Universal Android Camera Interface Scanner v0.3 — diagnostic only" --notes "Native Android APK — read-only Camera2, Linux V4L2 names, sysfs, USB inventory and user-initiated parked-only Camera2 preview. MG HS 2023 installation and OEM camera accessibility NOT verified. No vehicle controls, CAN, firmware or speed override. If Android head unit blocks third-party APK installation, do not bypass safety protections. Coffee: https://www.patreon.com/c/onurguner"
           fi

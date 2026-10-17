@@ -20,7 +20,7 @@
 
 ## Tek tık Windows laboratuvar kurulumu
 
-1. [GitHub Releases](https://github.com/OnurGuner5728/onur-drive-ai/releases) sayfasından başarıyla derlenmiş `OnurDriveAI-Windows-TekTik-LAB-v0.2.zip` dosyasını indir.
+1. **[Test edilmiş Windows ZIP'i doğrudan indir](https://github.com/OnurGuner5728/onur-drive-ai/releases/download/v0.2.0-lab/OnurDriveAI-Windows-TekTik-LAB-v0.2.zip)** (`OnurDriveAI-Windows-TekTik-LAB-v0.2.zip`, yaklaşık 72,5 MB).
 2. ZIP arşivini bir klasöre **çıkar**.
 3. `BASLAT.bat` dosyasına **çift tıkla**. Yerel 4-kameralı sentetik laboratuvar arayüzü tarayıcıda açılır.
 4. Kapatmak için açılan komut penceresini kapat.
@@ -73,3 +73,7 @@ Bu adımlar tamamlanmadıkça "araç üzerine kuruldu" veya "MG kameraları çal
 - GitHub'da APK derlenmesi, araca APK yükleme yetkisi veya MG HS kamera erişimi olduğu anlamına gelmez.
 - Adım adım doğrulama sonuçları: `docs/KURULUM_DOGRULAMA_2026-10-17.md`.
 
+
+## GitHub Windows derleme doğrulaması
+
+[Başarılı GitHub Actions run 38984682568](https://github.com/OnurGuner5728/onur-drive-ai/actions/runs/38984682568): Windows exe build, canlı localhost `/api/status` + HTML Patreon kontrolü, ZIP ve GitHub Release adımları **success**. Bu MG HS üzerindeki çalışmayı değil Windows laboratuvar paketini doğrular.

@@ -1,19 +1,29 @@
-# ONUR DRIVE AI — MG HS Android kamera bağlantı testi v0.2
+# ONUR DRIVE AI — Evrensel araç kamera/video arayüzü tarayıcısı (v0.3)
 
-Bu **araç Android ekranında çalışması için derlenen APK'dir**, Windows ZIP değil. Doğrudan araç multimedya sistemine yüklenmesi yalnızca aracın resmi/izin verilen APK yükleme arayüzü varsa mümkündür.
+**Araçta kullanılmak üzere hazırlanmış Android APK; Windows ZIP değil.** Yalnızca multimedya sistemi normal üçüncü taraf APK kurulumunu destekliyorsa kurulabilir.
 
-## Park halinde, fabrikasyon donanımı değiştirmeden ilk test
+## Bir düğmeyle cihaz keşfi
 
-1. GitHub Releases'den **OnurDriveAI-MGHS-CameraProbe-v0.2-debug.apk** dosyasını indir ve APK kurulumu desteklenen araç multimedya sistemine aktar.
-2. Araç park halindeyken normal Android uygulama kurulum işlemiyle yükle. Aracın sistemi üçüncü taraf uygulama kurmayı desteklemiyorsa burada dur. Android Auto'ya APK kurmak, MG'nin gömülü kamerasına erişim sağlamaz.
-3. Uygulamada **FABRİKA KAMERASI ERİŞİMİNİ TEST ET (PARK)** seç. Kamera listesinden erişilebilen bir cihaz seç.
-4. **SEÇİLİ KAMERAYI AÇ (PARK)** düğmesine bas ve kamera iznini ver. Gerçek görüntü ve artan kare sayısı çıkarsa standart Camera2 üzerinden görüntü erişimi doğrulanır.
-5. Dön ve **Tanı raporunu kaydet** ile cihaz ve Camera2 listesi raporunu JSON olarak al. Kameralar Camera2 listesinde yoksa bu API üzerinden erişim yok demektir, diğer donanım arayüzleri hakkında kesin bilgi vermez.
+1. Araç tamamen park halindeyken [v0.3 Android Scanner](https://github.com/OnurGuner5728/onur-drive-ai/releases/tag/v0.3.0-universal-scanner) sürümünden APK indir.
+2. Araç multimedya sistemi APK kurulumunu normal kullanıcı arayüzünde destekliyorsa yükle. Android Auto, MG HS'nin kamera sistemine erişim sağlamaz.
+3. **TÜM KAMERA / VİDEO ÇIKIŞLARINI TARA** düğmesine bas.
+4. **Tanı raporunu kaydet** düğmesiyle JSON dosyasını kaydet.
+5. Sadece Camera2 listesinde cihaz varsa, **FABRİKA KAMERASI ERİŞİMİNİ TEST ET (PARK)** seçeneğiyle normal Android kamera izinlerinden canlı görüntü açmayı dene.
 
-Uygulama yalnızca kullanıcı başlattığında kamera açmayı dener; arka plana geçerken kamerayı kapatır. **ACC, radar, CAN-BUS, gaz, fren, direksiyon, USB firmware güncellemesi, mühendislik modu, OEM hız sınırlaması değiştirme yok.** Bu üretim kalitesinde bir sürüş yardım sistemi değildir.
+## Taranan arayüzler (salt okunur)
 
-MG4 kamera uygulamasına ait /dev/video aygıt adresleri MG HS 2023 için varsayılmaz. Aracın Android çalıştırdığı, APK kurabildiği ve OEM kameralarını Camera2'ye açtığı henüz doğrulanmadı.
+- Android üretici/model/çipset ve işletim sistemi bilgileri.
+- Normal uygulamaların görebildiği Camera2 kamera kimlikleri, fiziksel alt kamera kimlikleri, özellikler ve çözünürlükler.
+- Linux video cihaz **isimleri ve dosya özelliği**: `/dev/videoN`, `/dev/mediaN`, `/dev/v4l-subdevN`.
+- `/sys/class/video4linux` aygıt adları görünürse onları okur.
+- Android UsbManager aygıt envanteri.
 
-Derleme: Java 17, Android SDK 35, Gradle 8.11.1; `gradle :app:assembleDebug`. GitHub CI APK oluşturabilir. APK debug anahtarıyla imzalıdır; gelecekte güncellemede önceki debug sürümün kaldırılması gerekebilir.
+Tarama V4L2 kamera cihazlarını açmaz; `canRead()` yalnızca bir Java erişim ipucudur, canlı görüntü erişimini **kanıtlamaz**. Standart Camera2 erişimi yalnızca açıkça başlatılan park halinde görüntü testinde denenir.
 
-[Patreon — Bir kahve ısmarla (isteğe bağlı)](https://www.patreon.com/c/onurguner)
+## Sonuçların yorumlanması
+
+Camera2 boş çıkarsa OEM kameraların yok olduğu anlamına gelmez. Bazı otomobiller EVS veya yalnızca üretici uygulamalarına tanınan `SYSTEM_CAMERA` arayüzlerini kullanır. Bunlar normal üçüncü taraf APK tarafından görülemeyebilir. Hız nedeniyle kamera akışı kesiliyorsa tarayıcı bunu değiştirmez.
+
+Bu sürüm **MG HS 2023 fabrika kameralarına erişimi, otomobilde kurulumu veya ACC verilerini henüz doğrulamıyor.** Kontrol komutları, root, yetki yükseltme, araç yazılımı güncelleme ve hız sınırını aşma bulunmaz. Canlı trafikte güvenlik amaçlı kullanmayın.
+
+[Kaynak kod](https://github.com/OnurGuner5728/onur-drive-ai) · [Patreon — Bir kahve ısmarla](https://www.patreon.com/c/onurguner)

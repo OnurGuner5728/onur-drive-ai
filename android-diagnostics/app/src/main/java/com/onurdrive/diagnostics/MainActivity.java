@@ -46,9 +46,11 @@ public final class MainActivity extends Activity implements TextToSpeech.OnInitL
         disclaimer.setTextSize(15);
         disclaimer.setPadding(0,15,0,20);
         column.addView(disclaimer);
+        Button camera = makeButton("FABRİKA KAMERASI ERİŞİMİNİ TEST ET (PARK)", column);
         Button scan = makeButton("Sistemi yeniden tara", column);
         Button voice = makeButton("Türkçe ses testi", column);
         Button save = makeButton("Tanı raporunu kaydet", column);
+        Button coffee = makeButton("Bir kahve ısmarla · Patreon (isteğe bağlı)", column);
         body = new TextView(this);
         body.setTextColor(0xffd8e8f6);
         body.setTextSize(14);
@@ -61,6 +63,8 @@ public final class MainActivity extends Activity implements TextToSpeech.OnInitL
         scan.setOnClickListener(v -> scan());
         voice.setOnClickListener(v -> speak());
         save.setOnClickListener(v -> save());
+        camera.setOnClickListener(v -> startActivity(new Intent(this, CameraProbeActivity.class)));
+        coffee.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://www.patreon.com/c/onurguner"))));
         tts=new TextToSpeech(this,this);
         scan();
     }

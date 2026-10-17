@@ -47,7 +47,7 @@ public final class MainActivity extends Activity implements TextToSpeech.OnInitL
         disclaimer.setPadding(0,15,0,20);
         column.addView(disclaimer);
         Button camera = makeButton("FABRİKA KAMERASI ERİŞİMİNİ TEST ET (PARK)", column);
-        Button scan = makeButton("Sistemi yeniden tara", column);
+        Button scan = makeButton("TÜM KAMERA / VİDEO ÇIKIŞLARINI TARA", column);
         Button voice = makeButton("Türkçe ses testi", column);
         Button save = makeButton("Tanı raporunu kaydet", column);
         Button coffee = makeButton("Bir kahve ısmarla · Patreon (isteğe bağlı)", column);
@@ -108,9 +108,20 @@ public final class MainActivity extends Activity implements TextToSpeech.OnInitL
                 root.put("camera2_error",ex.getClass().getSimpleName());
             }
             root.put("camera2_devices",cams);
+            // Cross-brand inventory of only interfaces exposed to a normal Android app.
+            root.put("universal_interface_discovery", UniversalInterfaceScanner.scan(this));
             // Note: Camera2 devices are not a complete enumeration of OEM cameras.
             root.put("important_note","OEM AVM cameras may be hidden from the public Camera2 API. No camera stream requested.");
             report=root.toString(2);
+            screen.append("OTOMATİK ARAYÜZ KEŞFİ — salt okunur\n");
+            JSONObject catalog = root.optJSONObject("universal_interface_discovery");
+            JSONObject interpretation = catalog == null ? null : catalog.optJSONObject("interpretation");
+            if (interpretation != null) {
+                screen.append("Camera2 görünür: ").append(interpretation.optBoolean("public_camera2_devices_visible")).append("\n");
+                screen.append("Linux video düğümleri görünür: ").append(interpretation.optBoolean("linux_video_nodes_visible")).append("\n");
+                screen.append("Gerçek MG HS kamera akışı: DOĞRULANMADI\n");
+            }
+            screen.append("UYARI: Bir /dev/video düğümünün görünmesi, görüntünün okunabileceği anlamına gelmez.\n\n");
             screen.append(report);
         } catch(Exception ex) {screen.append("Error: ").append(ex.getClass().getSimpleName());}
         body.setText(screen.toString());

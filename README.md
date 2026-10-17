@@ -1,14 +1,30 @@
-# ONUR DRIVE AI · MG HS 2023 — v0.2 LAB
+# ONUR DRIVE AI — MG HS 2023
 
-**Windows tek tık LAB paketi — doğrulanmış sürüm:** **[Hazır ZIP'i indir](https://github.com/OnurGuner5728/onur-drive-ai/releases/download/v0.2.0-lab/OnurDriveAI-Windows-TekTik-LAB-v0.2.zip)** → ZIP'i bir klasöre çıkar → **`BASLAT.bat` dosyasına çift tıkla**. Python kurulumu gerekmez. GitHub Actions, Windows EXE'yi derledi ve çalışan HTTP paneliyle smoke testini başarıyla tamamladı. Bu, MG HS araç içine kurulan veya gerçek kamera/ACC verilerini kullanan bir ürün değildir.
+> **HEDEF: ARAÇ İÇİNDE ÇALIŞAN YAPAY ZEKÂ SÜRÜŞ ASİSTANI.** Şu anda MG HS fabrika kameraları ve ACC/radar sensörleriyle çalışan sürüm **henüz yok**. Kesin donanım protokolü veya yetkili görüntü arayüzü saptanmadı. Araç kontrolüne müdahale yoktur.
 
-## ☕ Bir kahve ısmarla — Patreon
+## 1. Araç multimedya ekranı (öncelik)
 
-Projeyi desteklemek istersen: **[Patreon / Onur Güner](https://www.patreon.com/c/onurguner)**.
+**Android kamera erişim test APK'si (v0.2):** [GitHub Android sürümleri](https://github.com/OnurGuner5728/onur-drive-ai/releases/tag/v0.2.0-headunit-probe) — **derleme başarılı olursa** buradan indirilebilir.
 
-Destek tamamen gönüllüdür; indirmenin veya yazılımı çalıştırmanın koşulu değildir.
+Bu dosya Windows uygulaması değil, standart Android APK'dir. Multimedya sistemin üçüncü taraf APK kurulumunu **normal kullanıcı arayüzünden** destekliyorsa park halinde kurulabilir. İçindeki **Gerçek Kamera Testi** yalnızca kamuya açık `Camera2` arayüzünü dener; gerçek görüntü elde edilirse ilk bağlantı kanıtı oluşur. MG HS 2023'te kurulum veya kamera erişimi doğrulanmış değil. Araç OEM korumalarını aşan yöntemler bu projede bulunmaz.
+
+**Olası durumlar:** 
+- APK araç multimedya sistemine kurulabiliyorsa ve Camera2 canlı kareleri gösteriyorsa → görüntü işleme entegrasyonuna devam edilir.
+- APK kurulabiliyor ama Camera2 kameraları yoksa → OEM kamera akışı farklı arayüzdedir; bu APK ile açılamaz.
+- APK yüklenemiyorsa → fabrika yazılımının normal kullanıcı uygulama erişimi kapalıdır; ek donanım ve OEM yazılım değişikliği olmadan uygulanabilirliği gösterilemez.
+
+Araç içi APK testi: [android-diagnostics/README.md](android-diagnostics/README.md). Mevcut paket **sertifikalı ADAS değildir, trafikte sürüş uyarısı için kullanılmaz.**
+
+## 2. Windows laboratuvar sürümü (ARAÇ İÇİN DEĞİL)
+
+Windows'ta 4 **sentetik** kamera demosunu tek tıkla açmak için [v0.2 LAB ZIP](https://github.com/OnurGuner5728/onur-drive-ai/releases/download/v0.2.0-lab/OnurDriveAI-Windows-TekTik-LAB-v0.2.zip) dosyasını bilgisayara indirip `BASLAT.bat` dosyasını çalıştırabilirsin. Bu dosya araca yüklenmez.
+
+## ☕ Bir kahve ısmarla
+
+Destek tamamen gönüllüdür: **[Patreon — Onur Güner](https://www.patreon.com/c/onurguner)**.
 
 ---
+
 
 
 **Status (2026-10-17): Local working laboratory prototype. Not installed in the vehicle.**

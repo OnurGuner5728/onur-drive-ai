@@ -12,11 +12,28 @@ vehicle:
   head_unit_radio_software_family_confidence: "photo_limited_minor_version_not_verified"
   head_unit_navigation_version: "BINIMG_4.5.16_ARM*29"
   head_unit_voice_version: "3.2.28"
-  head_unit_android_version: unverified
+  head_unit_android_version: "9 (package versions strongly indicate Android 9; SDK not yet measured)"
   head_unit_engineering_mode: user_observed
   head_unit_engineering_mode_adb_page: "log_switch_dmesg_log_options_no_adbd_status_confirmed"
   head_unit_third_party_page: "vr_upgrade_navigation_upgrade_dsp_gain_no_apk_install_entry"
-  head_unit_app_version_menu: not_yet_inspected
+  head_unit_app_version_menu: inspected_2026_10_17
+  head_unit_installer_package: "com.android.packageinstaller (present, APK sideload not verified)"
+  head_unit_automotive_service: "com.android.car (present)"
+  head_unit_vendor_packages_observed:
+    - com.desaysv.ivi.adapterservice
+    - com.desaysv.ivi.fota
+    - com.desaysv.ivi.phonelinkdevice
+    - com.desaysv.launcher
+    - com.desaysv.mediaservice
+    - com.desaysv.svcarinfo
+    - com.desaysv.svhvac
+    - com.desaysv.svlinkset
+    - com.desaysv.vehicle.carplayapp
+    - com.desaysv.vehiclesetting
+    - com.desaysv.vrservice
+    - com.desaysv.usbvideoapp
+  head_unit_camera_app: unverified_no_identified_avm_package
+  head_unit_usb_apk_install: not_tested
   private_vehicle_identifiers: "OMITTED_VIN_SERIAL_BLUETOOTH_MAC"
   head_unit_firmware_evidence: user_supplied_system_screen_2026_10_17
   head_unit_family: "SAIC DS04A / MG HS AS23"

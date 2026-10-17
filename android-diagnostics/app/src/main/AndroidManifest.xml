@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-  <!-- No INTERNET, CAN, OBD, audio recording, or automotive actuation permissions. -->
+  <!-- Camera2 read-only preview requested with runtime permission; no CAN, OBD, audio recording or vehicle actuation. -->
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
   <application android:allowBackup="false" android:label="Onur Drive AI - Tanılama" android:usesCleartextTraffic="false" android:theme="@android:style/Theme.Material.Light.NoActionBar">
+    <activity android:name=".CameraProbeActivity" android:exported="false" />
     <activity android:name=".MainActivity" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>

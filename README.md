@@ -15,6 +15,12 @@ Bu dosya Windows uygulaması değil, standart Android APK'dir. Multimedya sistem
 
 Araç içi APK testi: [android-diagnostics/README.md](android-diagnostics/README.md). Mevcut paket **sertifikalı ADAS değildir, trafikte sürüş uyarısı için kullanılmaz.**
 
+## Evrensel araç kamera arayüzü tarayıcısı (v0.3)
+
+**[Android Universal Scanner APK sürümü](https://github.com/OnurGuner5728/onur-drive-ai/releases/tag/v0.3.0-universal-scanner)** — MG HS dahil Android tabanlı multimedya cihazlarında, **normal uygulamanın erişimine sunulmuş** Camera2 / Linux V4L2 aygıt adlarını / sysfs video bilgilerini / USB aygıtlarını tek düğmeyle envanterler. Park halinde ve izinli Camera2 cihazında kullanıcı isterse gerçek canlı kareleri test eder.
+
+**Önemli:** Bu uygulama gizli OEM kamera çıkışlarını veya araçlar arası bütün fiziksel video pinlerini uzaktan tespit edemez; MG HS üzerinde kurulumu ve fabrika kamera bağlantısı hâlâ doğrulanmadı. [Tarayıcı rehberi](android-diagnostics/README.md).
+
 ## 2. Windows laboratuvar sürümü (ARAÇ İÇİN DEĞİL)
 
 Windows'ta 4 **sentetik** kamera demosunu tek tıkla açmak için [v0.2 LAB ZIP](https://github.com/OnurGuner5728/onur-drive-ai/releases/download/v0.2.0-lab/OnurDriveAI-Windows-TekTik-LAB-v0.2.zip) dosyasını bilgisayara indirip `BASLAT.bat` dosyasını çalıştırabilirsin. Bu dosya araca yüklenmez.

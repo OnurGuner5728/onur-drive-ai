@@ -4,7 +4,7 @@
 
 ## 1. Araç multimedya ekranı (öncelik)
 
-**Android kamera erişim test APK'si (v0.2):** [GitHub Android sürümleri](https://github.com/OnurGuner5728/onur-drive-ai/releases/tag/v0.2.0-headunit-probe) — **derleme başarılı olursa** buradan indirilebilir.
+**Android kamera erişim test APK'si (v0.2):** **[Gerçek Android APK'yi indir](https://github.com/OnurGuner5728/onur-drive-ai/releases/download/v0.2.0-headunit-probe/OnurDriveAI-MGHS-CameraProbe-v0.2-debug.apk)**. [GitHub Android CI — başarılı](https://github.com/OnurGuner5728/onur-drive-ai/actions/runs/38988110663). APK derlendi, ancak MG HS üzerinde kurulumu ve OEM kameraya erişimi doğrulanmadı.
 
 Bu dosya Windows uygulaması değil, standart Android APK'dir. Multimedya sistemin üçüncü taraf APK kurulumunu **normal kullanıcı arayüzünden** destekliyorsa park halinde kurulabilir. İçindeki **Gerçek Kamera Testi** yalnızca kamuya açık `Camera2` arayüzünü dener; gerçek görüntü elde edilirse ilk bağlantı kanıtı oluşur. MG HS 2023'te kurulum veya kamera erişimi doğrulanmış değil. Araç OEM korumalarını aşan yöntemler bu projede bulunmaz.
 
